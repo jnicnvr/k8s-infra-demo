@@ -4,7 +4,7 @@ metadata:
   name: posts-depl
   
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: posts
@@ -15,4 +15,19 @@ spec:
     spec:
       containers:
         - name: posts
-          image: konics69/posts:0.0.1
+          image: konicsdev/posts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: post-clusterip-srv
+spec:
+  selector: 
+    app: posts
+  ports: 
+    - name: posts
+      protocol: TCP
+      port: 3002
+      targetPort: 3002
+
+
