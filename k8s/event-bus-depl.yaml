@@ -12,10 +12,10 @@ spec:
     metadata:
       labels:
         app: event-bus
-    spec:
-      containers:
-        - name: event-bus
-          image: konicsdev/event-bus
+      spec:
+        containers:
+          - name: event-bus
+            image: konicsdev/event-bus
 ---
 apiVersion: v1
 kind: Service
