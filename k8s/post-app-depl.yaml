@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post-app-depl
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: post-app
+  template:
+    metadata:
+      labels: 
+        app: post-app
+    spec:
+      containers:
+        - name: post-app
+          image: konicsdev/post-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: post-app-svc
+spec:
+  selector:
+    app: post-app
+  ports:
+  - name: post-app
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+
+
+
+
+
+
+
