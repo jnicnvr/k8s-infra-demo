@@ -16,12 +16,15 @@ spec:
       containers:
         - name: posts
           image: konicsdev/posts
+
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
   name: post-clusterip-srv
 spec:
+  type: ClusterIP
   selector: 
     app: posts
   ports: 
